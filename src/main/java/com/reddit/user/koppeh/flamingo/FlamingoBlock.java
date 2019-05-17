@@ -6,8 +6,8 @@ import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.VerticalEntityPosition;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateFactory;
@@ -29,7 +29,7 @@ public class FlamingoBlock extends Block implements BlockEntityProvider, BlockAt
 	}
 
 	@Override
-	public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, VerticalEntityPosition verticalEntityPosition_1) {
+	public VoxelShape getOutlineShape(BlockState blockState_1, BlockView blockView_1, BlockPos blockPos_1, EntityContext context) {
 		return OUTLINE_SHAPE;
 	}
 
@@ -41,7 +41,7 @@ public class FlamingoBlock extends Block implements BlockEntityProvider, BlockAt
 	@Override
 	protected void appendProperties(StateFactory.Builder<Block, BlockState> builder) {
 		super.appendProperties(builder);
-		builder.with(ROTATION);
+		builder.add(ROTATION);
 	}
 
 	@Override
